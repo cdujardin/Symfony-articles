@@ -1,0 +1,10 @@
+
+services:
+    app.my_first_service:
+        class: AppBundle\Services\MyFirstService
+
+
+
+    app.manager.author:
+        class: AppBundle\Manager\AuthorManager
+        arguments: ['@doctrine.orm.default_entity_manager', '@session']

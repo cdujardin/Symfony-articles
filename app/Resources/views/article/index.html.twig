@@ -1,0 +1,22 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <h1>Liste des articles</h1>
+    <table>
+        {% for article in articles %}
+            <tr>
+                <td>{{ article.id }}</td>
+                <td>{{ article.title }}</td>
+                <td>{% if article.auteur is not null %}{{ article.auteur.fullName }}{% endif %}</td>
+                <td><a href="{{ path('article_edit', {id: article.id}) }}">Modifier</a></td>
+                <td><a href="{{ path('article_delete', {id: article.id}) }}">Supprimer</a></td>
+            </tr>
+        {% else %}
+            <tr>
+                <td>Pas d'articles</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <a href="{{ path('article_new') }}">Créer un article</a>
+{% endblock %}

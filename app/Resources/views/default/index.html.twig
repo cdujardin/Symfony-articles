@@ -1,0 +1,10 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <p>Coucou {{ name }} !</p>
+    {{ 2|number_format(2) }}
+
+    <div>
+        {{ 'now'|date }}
+    </div>
+{% endblock %}

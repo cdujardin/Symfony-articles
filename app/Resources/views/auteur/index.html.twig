@@ -1,0 +1,22 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <h1>Liste des auteurs</h1>
+    <table>
+    {% for auteur in auteurs %}
+        <tr>
+            <td>{{ auteur.id }}</td>
+            <td>{{ auteur.firstname|capitalize }}</td>
+            <td>{{ auteur.name|capitalize }}</td>
+            <td><a href='{{ path('auteur_edit', {id:auteur.id}) }}'>Modifier</a></td>
+            <td><a href="{{ path('auteur_delete', {id:auteur.id}) }}">Supprimer</a></td>
+        </tr>
+        {% else %}
+        <tr>
+            <td>Pas d'auteurs</td>
+        </tr>
+    {% endfor %}
+    </table>
+
+    <a href="{{ path('auteur_new') }}">Créer un auteur</a>
+{% endblock %}
